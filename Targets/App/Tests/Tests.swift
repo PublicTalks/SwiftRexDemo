@@ -1,7 +1,8 @@
 import Foundation
+import Shop
 import XCTest
 
-final class TuistDemoKitTests: XCTestCase {
+final class ShopTests: XCTestCase {
     func test_example() {
         XCTAssertEqual("TuistDemoKit", "TuistDemoKit")
     }

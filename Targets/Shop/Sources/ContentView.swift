@@ -8,25 +8,18 @@
 import SwiftUI
 
 public struct ContentView: View {
-    public init() {}
-
-    enum Mode {
-        case weapon
-        case armor
+    public init(state: ShopState) {
+        self.state = state
     }
 
-    @State var mode: Mode = .weapon
-
-    private var composed: ComposedItem { .init(items: [weapons[0], armors[0]]) }
-    private let weapons: [Weapon] = .fake
-    private let armors: [Armor] = .fake
+    let state: ShopState
 
     var items: [Item] {
-        switch mode {
+        switch state.mode {
         case .weapon:
-            return [composed] + weapons
+            return state.weapons
         case .armor:
-            return [composed] + armors
+            return state.armors
         }
     }
 
@@ -37,13 +30,13 @@ public struct ContentView: View {
             HStack {
                 Spacer()
                 Button {
-                    mode = .weapon
+                    // mode = .weapon
                 } label: {
                     Text("武器")
                 }
                 Spacer()
                 Button {
-                    mode = .armor
+                    // mode = .armor
                 } label: {
                     Text("防具")
                 }
@@ -69,15 +62,12 @@ public struct ContentView: View {
             // Set the default to clear
             UITableView.appearance().backgroundColor = .clear
             UITableViewCell.appearance().backgroundColor = .clear
-
-            let allItems = weapons as [Item] + armors as [Item] + [composed]
-            print("appear")
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(state: .fake)
     }
 }

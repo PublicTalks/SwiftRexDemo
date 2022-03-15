@@ -11,7 +11,7 @@ extension Module {
     static let Shop: Module = .uFeature(name: "Shop",
                                         group: .none,
                                         targets: [
-                                            .framework: .resourcesWithModules([.Armor]),
+                                            .framework: .resourcesWithModules([.Armor, .CombineRex]),
                                             .unitTests: .empty,
                                             .exampleApp: .empty,
 
@@ -23,4 +23,13 @@ extension Module {
                                              .unitTests: .empty,
 
                                          ])
+
+    static let App: Module = .uFeature(name: "App",
+                                       group: .none,
+                                       targets: [
+                                           .framework: .modules([.Shop]),
+                                           .unitTests: .empty,
+                                           .exampleApp: .empty,
+
+                                       ])
 }

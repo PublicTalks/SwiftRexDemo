@@ -15,4 +15,6 @@ extension Module {
     static let Tagged: Module = .package(SwiftPackage(name: "Tagged", url: "https://github.com/pointfreeco/swift-tagged.git", requirement: .upToNextMajor(from: "0.6.0")))
 
     static let Difference: Module = .package(SwiftPackage(name: "Difference", url: "https://github.com/krzysztofzablocki/Difference.git", requirement: .upToNextMajor(from: "1.0.1")))
+
+    static let CombineRex: Module = .package(SwiftPackage(name: "CombineRex", url: "https://github.com/SwiftRex/SwiftRex.git", requirement: .upToNextMajor(from: "0.8.9")))
 }

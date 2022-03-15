@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Item {
+public protocol Item {
     var name: String { get }
     var price: Int { get }
 }
