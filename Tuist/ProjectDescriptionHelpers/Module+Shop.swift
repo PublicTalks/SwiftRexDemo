@@ -13,15 +13,14 @@ extension Module {
                                         targets: [
                                             .framework: .resourcesWithModules([.Armor]),
                                             .unitTests: .empty,
-                                            .exampleApp: .empty
+                                            .exampleApp: .empty,
 
                                         ])
     static let Armor: Module = .uFeature(name: "Armor",
-                                        group: .none,
-                                        targets: [
-                                            .framework: .modules([]),
-                                            .unitTests: .empty,
-                                          
+                                         group: .none,
+                                         targets: [
+                                             .framework: .modules([]),
+                                             .unitTests: .empty,
 
-                                        ])
+                                         ])
 }

@@ -5,8 +5,8 @@
 //  Created by Hai Feng Kao on 2021/12/9.
 //
 
-import SwiftUI
 import Shop
+import SwiftUI
 @main
 struct DeclarativeProgrammingCocoaHeadsApp: App {
     var body: some Scene {

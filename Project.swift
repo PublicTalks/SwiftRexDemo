@@ -21,6 +21,6 @@ import ProjectDescriptionHelpers
 
 // Creates our project using a helper function defined in ProjectDescriptionHelpers
 
-let project: Project = .merged(name: "TuistDemo",
+let project: Project = .merged(name: "SwiftRexDemo",
                                modules: Module.Constant.allFrameworks,
                                additionalFiles: [])

@@ -8,9 +8,8 @@
 import SwiftUI
 
 public struct ContentView: View {
-    public init() {
-        
-    }
+    public init() {}
+
     enum Mode {
         case weapon
         case armor

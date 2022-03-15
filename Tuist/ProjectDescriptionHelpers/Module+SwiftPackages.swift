@@ -8,9 +8,7 @@
 import Foundation
 
 extension Module {
-
     static let SwiftCollection: Module = .package(SwiftPackage(name: "Collections", url: "https://github.com/apple/swift-collections.git", requirement: .upToNextMajor(from: "1.0.2")))
-
 
     static let Fakery: Module = .package(SwiftPackage(name: "Fakery", url: "https://github.com/vadymmarkov/Fakery.git", requirement: .upToNextMajor(from: "5.1.0")))
 

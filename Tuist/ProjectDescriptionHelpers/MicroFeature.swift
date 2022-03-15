@@ -136,7 +136,7 @@ extension MicroFeature {
             private: "\(projectPath)/Sources/\(name)/PrivateHeader/**",
             project: nil
         ) : nil
-        
+
         let sources = Target(name: name,
                              platform: platform,
                              product: product,
@@ -192,7 +192,7 @@ extension MicroFeature {
             infoPlist: .extendingDefault(with: infoPlist),
             sources: ["\(projectPath)/Example/Shared/**"],
             resources: ["\(projectPath)/Example/Shared/*.xcassets"],
-            dependencies: dependentReferences(types: [.exampleApp]) +  [.target(name: name)] // need to reference the framework target
+            dependencies: dependentReferences(types: [.exampleApp]) + [.target(name: name)] // need to reference the framework target
         )
 
         if !requiredTargetTypes.contains(.uiTests) { return [mainTarget] }
