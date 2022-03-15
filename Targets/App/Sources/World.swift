@@ -17,7 +17,7 @@ public struct AppState {
 }
 
 public class World {
-    var store: AnyStoreType<AppAction, AppState>?
+    public var store: AnyStoreType<AppAction, AppState>!
 
     init() {
         let initialState = AppState.empty
@@ -32,4 +32,9 @@ public class World {
         )
         self.store = store.eraseToAnyStoreType()
     }
+}
+
+
+public extension World {
+    static let origin: World = .init()
 }

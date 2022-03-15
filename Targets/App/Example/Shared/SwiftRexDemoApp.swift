@@ -10,9 +10,11 @@ import SwiftUI
 
 @main
 struct SwiftRextDemoApp: App {
+    
+    let viewModel: ContentView.ViewModel = World.origin.store.asObservableViewModel(initialState: .empty, emitsValue: .always)
     var body: some Scene {
         WindowGroup {
-            ContentView(state: .empty)
+            ContentView(viewModel: viewModel)
         }
     }
 }

@@ -8,13 +8,21 @@
 import App
 import Shop
 import SwiftUI
+import CombineRex
 
 public struct ContentView: View {
-    public init(state: AppState) {
-        self.state = state
+    public typealias ViewState = AppState
+    public typealias ViewAction = AppAction
+    public typealias ViewModel = ObservableViewModel<ViewAction, ViewState>
+    @ObservedObject public var viewModel: ViewModel
+    
+    public init(viewModel: ViewModel) {
+        self.viewModel = viewModel
     }
 
-    let state: AppState
+    var state: ViewState {
+        self.viewModel.state
+    }
 
     public var body: some View {
         NavigationView {
@@ -25,11 +33,5 @@ public struct ContentView: View {
             }
             .navigationViewStyle(StackNavigationViewStyle())
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(state: .empty)
     }
 }
