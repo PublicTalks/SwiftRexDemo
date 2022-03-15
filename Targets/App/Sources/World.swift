@@ -8,10 +8,12 @@
 import CombineRex
 import Foundation
 import SwiftRex
+import Shop
 public enum AppAction {}
 
 public struct AppState {
-    static let empty: Self = .init()
+    public var shopState: ShopState
+    public static let empty: Self = .init(shopState: .fake)
 }
 
 public class World {

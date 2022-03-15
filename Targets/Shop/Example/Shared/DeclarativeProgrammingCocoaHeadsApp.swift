@@ -11,7 +11,7 @@ import SwiftUI
 struct DeclarativeProgrammingCocoaHeadsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(state: .fake)
+            ShopView(state: .fake)
         }
     }
 }

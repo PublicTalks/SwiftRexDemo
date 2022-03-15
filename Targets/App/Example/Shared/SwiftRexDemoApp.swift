@@ -5,13 +5,14 @@
 //  Created by Hai Feng Kao on 2021/12/9.
 //
 
-import Shop
+import App
 import SwiftUI
+
 @main
-struct DeclarativeProgrammingCocoaHeadsApp: App {
+struct SwiftRextDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(state: .fake)
+            ContentView(state: .empty)
         }
     }
 }
