@@ -27,7 +27,7 @@ public struct ContentView: View {
     public var body: some View {
         NavigationView {
             VStack {
-                NavigationLink(destination: ShopView(state: state.shopState)) {
+                NavigationLink(destination: ShopView(viewModel: viewModel.projection(action: AppAction.shop, state: \.shopState).asObservableViewModel(initialState: .fake, emitsValue: .always))) {
                     Text("Shop")
                 }
             }

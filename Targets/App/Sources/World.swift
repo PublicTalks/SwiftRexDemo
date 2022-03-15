@@ -9,7 +9,18 @@ import CombineRex
 import Foundation
 import SwiftRex
 import Shop
-public enum AppAction {}
+public enum AppAction {
+    case shop(ShopAction)
+}
+
+extension AppAction {
+    var shop: ShopAction? {
+        if case let AppAction.shop(action) = self {
+            return action
+        }
+        return nil
+    }
+}
 
 public struct AppState {
     public var shopState: ShopState
@@ -24,7 +35,7 @@ public class World {
 
         let store: ReduxStoreBase<AppAction, AppState> = .init(
             subject: .combine(initialValue: initialState),
-            reducer: .identity,
+            reducer: ShopReduxFramework.reducer.lift(action: \AppAction.shop, state: \AppState.shopState),
 
             middleware: IdentityMiddleware(),
 

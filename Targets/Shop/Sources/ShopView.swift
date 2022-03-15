@@ -6,13 +6,22 @@
 //
 
 import SwiftUI
+import CombineRex
 
 public struct ShopView: View {
-    public init(state: ShopState) {
-        self.state = state
+    
+    public typealias ViewState = ShopState
+    public typealias ViewAction = ShopAction
+    public typealias ViewModel = ObservableViewModel<ViewAction, ViewState>
+    @ObservedObject public var viewModel: ViewModel
+    
+    public init(viewModel: ViewModel) {
+        self.viewModel = viewModel
     }
 
-    let state: ShopState
+    var state: ShopState {
+        self.viewModel.state
+    }
 
     var items: [Item] {
         switch state.mode {
@@ -31,12 +40,14 @@ public struct ShopView: View {
                 Spacer()
                 Button {
                     // mode = .weapon
+                    viewModel.dispatch(ShopAction.changeSection(.weapon))
                 } label: {
                     Text("武器")
                 }
                 Spacer()
                 Button {
                     // mode = .armor
+                    viewModel.dispatch(ShopAction.changeSection(.armor))
                 } label: {
                     Text("防具")
                 }
@@ -66,8 +77,3 @@ public struct ShopView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopView(state: .fake)
-    }
-}
