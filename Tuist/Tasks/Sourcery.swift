@@ -1,15 +1,13 @@
+#!/usr/bin/swift
 import Foundation
-import ProjectAutomation
 
 /// copyed from MicroFeatureGroup.swift
 /// I don't know how to avoid duplicated codes
 enum MicroFeatureGroup: String {
     case none
-    case infrastructure = "Infrastructure"
-    case applicationServices = "ApplicationServices"
-    case utilities = "Utilities"
-    case common = "Common"
 }
+
+// sourcery --sources Sources / WebOperationContext / Interface --templates /Users / lono / Dropbox / MacSetting / osxc / podtool / Sourcery / Prism --args imports = IcarusObject, imports = BBB --output Sources / WebOperationContext / Interface / Generated
 
 @discardableResult
 func shell(_ args: [String]) -> String {
@@ -58,10 +56,10 @@ struct Templates: CustomStringConvertible, ExpressibleByArrayLiteral {
 enum TargetType {
     case framework
 
-    func path(projectName: String) -> String {
+    func path(projectName _: String) -> String {
         switch self {
         case .framework:
-            return "Sources/\(projectName)/Classes"
+            return "Sources/"
         }
     }
 }
@@ -76,9 +74,9 @@ struct Command {
 
     var projectPath: String {
         if group == .none {
-            return "Targets/\(projectName)/Targets/" + targetType.path(projectName: projectName)
+            return "Targets/\(projectName)/" + targetType.path(projectName: projectName)
         } else {
-            return "Targets/\(group.rawValue)/\(projectName)/Targets/" + targetType.path(projectName: projectName)
+            return "Targets/\(group.rawValue)/\(projectName)/" + targetType.path(projectName: projectName)
         }
     }
 
@@ -101,8 +99,17 @@ struct Command {
     }
 }
 
-let task = Task(
-    options: [
-    ]
-) { _ in
+extension String {
+    static let App = "App"
+    static let Shop = "Shop"
+    static let Armor = "Armor"
 }
+
+let Shop: Command = .init(projectName: .Shop,
+                          group: .none,
+                          targetType: .framework,
+                          templates: [.prism, .caseName],
+                          libs: [])
+
+print(Shop.commandStr.components(separatedBy: " "))
+print(shell(Shop.commandStr.components(separatedBy: " ")))

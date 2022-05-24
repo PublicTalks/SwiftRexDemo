@@ -1,0 +1,31 @@
+{# Inspired by http://merowing.info/2017/04/using-protocol-compositon-for-dependency-injection/ #}
+
+{# Make sure to use an array of 1 for a single import declaration#}
+{# such as :  args: imports = ["SomeModule"]#}
+{# Note that this will be added for all files. If you want more granularity, see below... #}
+{% for import in argument.imports %}
+import {{ import }}
+{% endfor %}
+
+{% for type in types.structs where type|annotated:"AutoProperties" %}
+// MARK: {{type.name}}
+
+{% for p in type.variables|instance %}
+{% set protoName %}{% if p.annotations.PropertiesProtocol %}{{p.annotations.PropertiesProtocol }}{% else %}{{p.annotations.PropertiesProtocolPrefix|default:"Has"}}{{p.name|titlecase}}{{p.annotations.PropertiesProtocolSuffix}}{% endif %}{% endset %}
+{% if p.readAccess == "public" %}
+{{p.readAccess}} protocol {{protoName}} { var {{p.name}}: {{p.actualTypeName}} { get } }
+{% endif %}
+
+{% endfor %}
+
+
+// placeholder because we cannot get the first protocol name
+// see: https://github.com/SwiftGen/StencilSwiftKit/issues/82
+public protocol Dummy{{type.name}}SourceryProtocol {}
+
+public typealias {{type.name}}SourceryProtocol = Dummy{{type.name}}SourceryProtocol
+{% for p in type.variables|instance %}
+{% set protoName %}{% if p.annotations.ProiertiesProtocol %}{{p.annotations.PropertiesProtocol }}{% else %}{{p.annotations.PropertiesProtocolPrefix|default:"Has"}}{{p.name|titlecase}}{{p.annotations.PropertiesProtocolSuffix}}{% endif %}{% endset %} {% if p.readAccess == "public" %} & {{protoName}} {% endif %}
+{% endfor %}
+
+{% endfor %}
