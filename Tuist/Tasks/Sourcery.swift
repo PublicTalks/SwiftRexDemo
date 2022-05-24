@@ -81,7 +81,7 @@ struct Command {
     }
 
     var outputPath: String {
-        projectPath + "/.." + "/Generated"
+        projectPath + "/Generated"
     }
 
     var imports: String {
@@ -108,7 +108,7 @@ extension String {
 let Shop: Command = .init(projectName: .Shop,
                           group: .none,
                           targetType: .framework,
-                          templates: [.prism, .caseName],
+                          templates: [.prism],
                           libs: [])
 
 print(Shop.commandStr.components(separatedBy: " "))

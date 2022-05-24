@@ -13,13 +13,15 @@ public struct ShopView: View {
     public typealias ViewState = ShopState
     public typealias ViewAction = ShopAction
     public typealias ViewModel = ObservableViewModel<ViewAction, ViewState>
-    // @ObservedObject public var viewModel: ViewModel
+    @ObservedObject public var viewModel: ViewModel
     
-    public init(state: ViewState) {
-        self.state = state
+    public init(viewModel: ViewModel) {
+        self.viewModel = viewModel
     }
 
-    var state: ShopState
+    var state: ShopState {
+        self.viewModel.state
+    }
 
     var items: [Item] {
         switch state.mode {
@@ -38,14 +40,14 @@ public struct ShopView: View {
                 Spacer()
                 Button {
                     // mode = .weapon
-                    //viewModel.dispatch(ShopAction.changeSection(.weapon))
+                    viewModel.dispatch(ShopAction.changeSection(.weapon))
                 } label: {
                     Text("武器")
                 }
                 Spacer()
                 Button {
                     // mode = .armor
-                    //viewModel.dispatch(ShopAction.changeSection(.armor))
+                    viewModel.dispatch(ShopAction.changeSection(.armor))
                 } label: {
                     Text("防具")
                 }
