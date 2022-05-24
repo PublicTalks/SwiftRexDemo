@@ -1,34 +1,32 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "ReactiveSwift",
-        "repositoryURL": "https://github.com/ReactiveCocoa/ReactiveSwift.git",
-        "state": {
-          "branch": null,
-          "revision": "efb2f0a6f6c8739cce8fb14148a5bd3c83f2f91d",
-          "version": "7.0.0"
-        }
-      },
-      {
-        "package": "RxSwift",
-        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
-        "state": {
-          "branch": null,
-          "revision": "b4307ba0b6425c0ba4178e138799946c3da594f8",
-          "version": "6.5.0"
-        }
-      },
-      {
-        "package": "SwiftRex",
-        "repositoryURL": "https://github.com/SwiftRex/SwiftRex.git",
-        "state": {
-          "branch": null,
-          "revision": "109b82bd32cd1d1b417d000deb020254dccea97b",
-          "version": "0.8.11"
-        }
+  "pins" : [
+    {
+      "identity" : "reactiveswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveCocoa/ReactiveSwift.git",
+      "state" : {
+        "revision" : "efb2f0a6f6c8739cce8fb14148a5bd3c83f2f91d",
+        "version" : "7.0.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift.git",
+      "state" : {
+        "revision" : "b4307ba0b6425c0ba4178e138799946c3da594f8",
+        "version" : "6.5.0"
+      }
+    },
+    {
+      "identity" : "swiftrex",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftRex/SwiftRex.git",
+      "state" : {
+        "revision" : "109b82bd32cd1d1b417d000deb020254dccea97b",
+        "version" : "0.8.11"
+      }
+    }
+  ],
+  "version" : 2
 }

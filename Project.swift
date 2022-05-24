@@ -23,4 +23,4 @@ import ProjectDescriptionHelpers
 
 let project: Project = .merged(name: "SourceryDemo",
                                modules: Module.Constant.allFrameworks,
-                               additionalFiles: [])
+                               additionalFiles: ["Playgrounds/**/*.playground"])

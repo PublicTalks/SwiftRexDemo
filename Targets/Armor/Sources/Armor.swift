@@ -13,7 +13,7 @@ public struct Armor {
     let price: Int
 }
 
-extension Array where Element == Armor {
+public extension Array where Element == Armor {
     static let fake: Self = [
         .init(name: "皮甲", defense: 11.0, price: 10),
         .init(name: "鑲釘皮甲", defense: 12.0, price: 45),

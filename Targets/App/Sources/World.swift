@@ -42,10 +42,17 @@ public class World {
             emitsValue: .always // AppState always change upon receiving any actions. there is no reason to waste time for comparison. leave it to ObservableViewModel(it use .whenDifferent by default) for comparison
         )
         self.store = store.eraseToAnyStoreType()
+        
+        demo()
     }
 }
 
 
 public extension World {
     static let origin: World = .init()
+}
+
+
+func demo() {
+    print([Armor].fake)
 }
