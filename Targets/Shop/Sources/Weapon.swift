@@ -9,11 +9,19 @@ import Foundation
 
 struct Weapon {
     let name: String
+    public init(name: String, damage: Float, price: Int) {
+        self.name = name
+        self.damage = damage
+        self.price = price
+    }
+    
+    public let name: String
     let damage: Float
-    let price: Int
+    public let price: Int
 }
 
 extension Array where Element == Weapon {
+public extension Array where Element == Weapon {
     static let fake: Self = [
         .init(name: "木棒", damage: 6.0, price: 1),
         .init(name: "匕首", damage: 3.0, price: 2),

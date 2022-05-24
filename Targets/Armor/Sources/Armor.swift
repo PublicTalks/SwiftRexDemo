@@ -8,9 +8,9 @@
 import Foundation
 
 public struct Armor {
-    let name: String
+    public let name: String
     let defense: Float
-    let price: Int
+    public let price: Int
 }
 
 public extension Array where Element == Armor {

@@ -31,8 +31,9 @@ typealias Strings = [String]
 
 enum Template: String {
     case prism = "Prism"
-    case lenses = "AutoLenses"
-    case caseName = "AutoCaseName"
+    case autoInterface = "AutoInterface"
+    case autoLenses = "AutoLenses"
+    case autoCaseName = "AutoCaseName"
 }
 
 let appFolder = URL(string: FileManager.default.currentDirectoryPath)!
