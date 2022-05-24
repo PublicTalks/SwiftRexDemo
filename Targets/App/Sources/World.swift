@@ -54,5 +54,21 @@ public extension World {
 
 
 func demo() {
-    print([Armor].fake)
+    
+    let action: ShopAction = .changeSection(.armor)
+    
+    if let section = action.changeSection {
+        print(section)
+    }
+    
+    
+    let action2: ShopAction = .changeSection(.weapon)
+    print(action.caseName == action2.caseName)
+    
+    let weapon: Weapon = .init(name: "木棒", damage: 6.0, price: 1)
+    
+    let weapon2 = weapon |> Weapon.lens.name .~ "鐵棒"
+    |> Weapon.lens.price .~ 5
+    
+    print(weapon2)
 }

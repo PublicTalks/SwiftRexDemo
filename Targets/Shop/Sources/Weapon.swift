@@ -7,7 +7,9 @@
 
 import Foundation
 
-public struct Weapon {
+protocol AutoLenses {}
+protocol AutoGenericLenses {}
+public struct Weapon: AutoLenses {
     
     public init(name: String, damage: Float, price: Int) {
         self.name = name

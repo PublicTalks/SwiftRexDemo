@@ -109,8 +109,8 @@ extension String {
 let Shop: Command = .init(projectName: .Shop,
                           group: .none,
                           targetType: .framework,
-                          templates: [.prism],
-                          libs: [])
+                          templates: [.prism, .autoCaseName, .autoLenses],
+                          libs: ["Armor", "Weapon"])
 
 print(Shop.commandStr.components(separatedBy: " "))
 print(shell(Shop.commandStr.components(separatedBy: " ")))

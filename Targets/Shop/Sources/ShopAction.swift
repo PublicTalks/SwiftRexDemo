@@ -8,7 +8,10 @@
 
 import Foundation
 
-public enum ShopAction {
+protocol AutoCaseName {}
+
+// sourcery: Prism
+public enum ShopAction: AutoCaseName {
     case changeSection(ShopState.Mode)
     case buy(Item)
 }
